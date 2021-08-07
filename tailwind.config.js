@@ -11,6 +11,10 @@ module.exports = {
         '4/5': '80%',
         full: '100%',
       },
+      maxWidth: {
+        '2/3': '66.666%',
+        '4/5': '80%',
+      },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
       },
