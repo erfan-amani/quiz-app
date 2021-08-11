@@ -1,7 +1,15 @@
-import TopicForm from '../feature/TopicForm';
+import { useContext } from 'react';
+import CategoryContext from '../feature/category/category-context';
+import TopicForm from '../feature/category/TopicForm';
 import Card from '../feature/Ui/Card';
 
 const Welcome = () => {
+  const categoryCtx = useContext(CategoryContext);
+
+  if (!categoryCtx.list || categoryCtx.list.length === 0) {
+    categoryCtx.fetchCategories();
+  }
+
   return (
     <Card>
       <h1 className="text-4xl font-bold">Quizy</h1>
@@ -9,7 +17,7 @@ const Welcome = () => {
         Hi there👋
         <br /> for starting the quiz choose a topic
       </p>
-      <TopicForm />
+      <TopicForm categories={categoryCtx.list} />
     </Card>
   );
 };
